@@ -1,7 +1,12 @@
 from telegram import Bot
+import asyncio
+import os
 
-TOKEN = "8938583105:AAETSSBD8dWk0rgAy_i-ogTNJSFVo8U8VLo"
+TOKEN = os.getenv("BOT_TOKEN")
+CHAT_ID = "@oferte_romania_zilnic"
 
-bot = Bot(token=TOKEN)
+async def main():
+    bot = Bot(TOKEN)
+    await bot.send_message(chat_id=CHAT_ID, text="Salut! Botul funcționează! 🎉")
 
-bot.send_message(chat_id="oferte_romania_zilnic", text="Salut! Botul funcționează! 🎉")
+asyncio.run(main())
